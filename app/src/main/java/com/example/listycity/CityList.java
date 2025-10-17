@@ -22,12 +22,40 @@ public class CityList {
 
     /**
      * This method sorts the lists of cities
-     * @return
+     * @return a list of cities in alphabetical ascending order
      */
     public List<City> getCities() {
         List<City> list = new ArrayList<>(cities);
         list.sort(Collections.reverseOrder());
         return list;
+    }
+
+    /**
+     * This method checks if a city is in the list
+     * @param city
+     * @return true if the city is in the list, else false
+     */
+    public boolean hasCity(City city) {
+        return cities.contains(city);
+    }
+
+    /**
+     * This method deletes a city from the list
+     * @param city
+     */
+    public void deleteCity(City city) {
+        if(!cities.remove(city)) {
+            throw new IllegalArgumentException("No such city");
+        }
+        cities.remove(city);
+    }
+
+    /**
+     * This method counts the number of cities in the list
+     * @return list size
+     */
+    public int countCities() {
+        return cities.size();
     }
 
 }
